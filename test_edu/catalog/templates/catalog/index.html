@@ -1,0 +1,19 @@
+{% extends 'catalog/base.html' %}
+ 
+{% block content %}
+    <h2>{{title}}</h2>
+    
+    <ul>
+        {% for p in product %}
+        <li>
+            <h4>{{p.title}}</h4>
+            {% autoescape on %}
+                {{p.content|truncatewords:10}}
+                <p>В корзину</p>
+                <!-- <p>Просмотр</p> -->
+            {% endautoescape %}
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
